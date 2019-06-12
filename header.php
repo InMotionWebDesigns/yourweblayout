@@ -26,7 +26,6 @@
 
 	<header id="masthead" class="site-header">
 		<div class="container">
-
 			<div class="row">
 				<div class="col-md-6">
 					<div id="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -34,36 +33,42 @@
 						<!--<h2 class="site-description"><?php // bloginfo( 'description' ); ?></h2>-->
 					</div><!-- #logo -->
 				</div><!-- .col -->
+				<div class="col-md-6">
+					<div class="header-widget-1">
+						<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('header-widget-1') ) : endif; ?>
+					</div><!-- end header-widget-1-->
+				</div><!-- .col -->
 			</div><!-- .row -->
-
-			<div class="row">
-				<nav id="site-navigation" class="navbar navbar-default">
-					<div class="navbar-header">
-                    	<!--<a class="navbar-brand visible-xs" href="#">Main Menu</a>-->
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar">
-							<span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div><!-- .navbar-header -->
-
-					<?php wp_nav_menu( array(
-						'menu'              => 'primary',
-						'theme_location'    => 'primary',
-						'depth'             => 3,
-						'container'         => 'div',
-						'container_class'   => 'collapse navbar-collapse',
-						'container_id'      => 'primary-navbar',
-						'menu_class'        => 'nav navbar-nav',
-						'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-						'walker'            => new wp_bootstrap_navwalker())
-						);
-					?>
-				</nav><!-- #site-navigation -->
-			</div><!-- .row -->
-
 		</div><!-- .container -->
+		<nav id="site-navigation" class="navbar navbar-default">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="navbar-header">
+							<!--<a class="navbar-brand visible-xs" data-toggle="collapse" data-target="#primary-navbar" href="#">Main Menu</a>-->
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div><!-- .navbar-header -->
+						<?php wp_nav_menu( array(
+							'menu'              => 'primary',
+							'theme_location'    => 'primary',
+							'depth'             => 3,
+							'container'         => 'div',
+							'container_class'   => 'collapse navbar-collapse',
+							'container_id'      => 'primary-navbar',
+							'menu_class'        => 'nav navbar-nav',
+							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+							'walker'            => new wp_bootstrap_navwalker())
+							);
+						?>
+					</div><!-- .col -->
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</nav><!-- #site-navigation -->
 	</header><!-- .site-header -->
 
 	<div id="content" class="site-content">
