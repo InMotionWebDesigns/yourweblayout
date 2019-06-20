@@ -7,7 +7,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
 		<div class="entry-meta">
 			<?php yourweblayout_posted_on(); ?>
 		</div><!-- .entry-meta -->
@@ -61,7 +60,6 @@ if ( has_post_thumbnail() ) {
 				get_permalink()
 			);
 		?>
-
 		<?php edit_post_link( __( 'Edit', 'yourweblayout' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
