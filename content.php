@@ -7,7 +7,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php yourweblayout_posted_on(); ?>
@@ -20,8 +19,6 @@
 if ( has_post_thumbnail() ) {
 	the_post_thumbnail();
 } 
-
-
 		 the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'yourweblayout' ) ); ?>
 		<?php
 			wp_link_pages( array(
