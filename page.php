@@ -12,6 +12,7 @@
 
 get_header(); ?>
 </div><!-- end container -->
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<div class="container">
@@ -35,5 +36,6 @@ get_header(); ?>
 			</div><!-- end container -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
+
 <div class="container">
 <?php get_footer(); ?>
