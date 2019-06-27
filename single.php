@@ -12,10 +12,10 @@ get_header(); ?>
 		<main id="main" class="site-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-sm-4 col-md-3">
 						<?php get_sidebar(1); ?>
 					</div><!-- .col -->
-					<div class="col-md-9">
+					<div class="col-sm-8 col-md-9">
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php get_template_part( 'content', 'single' ); ?>
 							<?php yourweblayout_post_nav(); ?>
