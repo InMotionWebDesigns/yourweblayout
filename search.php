@@ -12,10 +12,10 @@ get_header(); ?>
 		<main id="main" class="site-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-sm-4 col-md-3">
 						<?php get_sidebar(1); ?>
 					</div><!-- .col -->
-					<div class="col-md-9">
+					<div class="col-sm-8 col-md-9">
 						<?php if ( have_posts() ) : ?>
 							<header class="page-header">
 								<h2 class="page-title"><?php printf( __( 'Search Results for: %s', 'yourweblayout' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
