@@ -6,13 +6,13 @@
  */
 
 get_header(); ?>
-</div><!-- end container -->
+</div><!-- .container -->
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-sm-12">
 						<section class="error-404 not-found">
 							<header class="page-header">
 								<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'yourweblayout' ); ?></h1>
@@ -51,7 +51,7 @@ get_header(); ?>
 						</section><!-- .error-404 -->
 					</div><!-- .col -->
 				</div><!-- .row -->
-			</div><!-- end container -->
+			</div><!-- .container -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 				
