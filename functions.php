@@ -21,8 +21,14 @@ if ( ! function_exists( 'yourweblayout_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function yourweblayout_setup() {
+    /*
+	 * Adds custom logo option in WP dashboard Appearance > Customize
+	 */ 
+	add_theme_support('custom-logo');
 
-	// Add default posts and comments RSS feed links to head.
+    /*
+	 * Add default posts and comments RSS feed links to head.
+	 */ 
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
@@ -32,12 +38,6 @@ function yourweblayout_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in multiple locations.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'yourweblayout' ),
-		'secondary' => __( 'Secondary Menu', 'yourweblayout' ),
-	) );
-	
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -53,54 +53,84 @@ function yourweblayout_setup() {
 	add_theme_support( 'post-formats', array(
 		'aside', 'image', 'video', 'quote', 'link'
 	) );
+	
+    /*
+	 * This theme uses wp_nav_menu() in multiple locations.
+	 */ 
+	register_nav_menus( array(
+		'primary' => __( 'Primary Menu', 'yourweblayout' ),
+		'secondary' => __( 'Secondary Menu', 'yourweblayout' ),
+	) );
+	
 }
 endif; // yourweblayout_setup
 add_action( 'after_setup_theme', 'yourweblayout_setup' );
 
-/**
- * Register widget areas.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function yourweblayout_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Left Sidebar', 'yourweblayout' ),
-		'id'            => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-	register_sidebar( array(
-		'name'          => __( 'Right Sidebar', 'yourweblayout' ),
-		'id'            => 'sidebar-2',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+
+/*
+* Function allows Customizer logo to be shown in header
+*/
+function yourweblayout_custom_logo() {
+    // Try to retrieve the Custom Logo
+    $output = '';
+    if (function_exists('get_custom_logo'))
+        $output = get_custom_logo();
+
+    // Nothing in the output: Custom Logo is not supported, or there is no selected logo
+    // In both cases we display the site's name
+    if (empty($output))
+        $output = '<h2><a href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a></h2>';
+    echo $output;
 }
-add_action( 'widgets_init', 'yourweblayout_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles.
  */
 function yourweblayout_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css' );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/all.css' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/font-awesome.css' );
+	wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.css' );
 	wp_enqueue_style( 'smartmenus-css', get_template_directory_uri() . '/css/jquery.smartmenus.bootstrap.css' );
 	wp_enqueue_style( 'yourweblayout-style', get_stylesheet_uri() );
-	
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . 'js/jquery-1.11.1.js'  );
+
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.11.1.js'  );
 	wp_enqueue_script( 'bootstrap-javascript', get_template_directory_uri() . '/js/bootstrap.js' );
 	wp_enqueue_script( 'smartmenus-javascript', get_template_directory_uri() . '/js/jquery.smartmenus.js'  );
 	wp_enqueue_script( 'smartmenus-bootstrap-javascript', get_template_directory_uri() . '/js/jquery.smartmenus.bootstrap.js' );
+	wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/all.js' );
+	wp_enqueue_script( 'topbutton', get_template_directory_uri() . '/js/topbutton.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'yourweblayout_scripts' );
+
+
+
+/**
+ * Allows shortcodes to be used in widgets
+ */ 
+add_filter('widget_text', 'do_shortcode');
+
+
+/**
+ * Show Font Awesome icons in visual editor
+ */
+add_editor_style( 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' );
+
+
+/**
+ * Replaces the excerpt "more" text by a link
+ */ 
+function new_excerpt_more($more) {
+       global $post;
+    return ' <a class="moretag" href="'. get_permalink($post->ID) . '">Read more &raquo;</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 
 /**
  * Hide theme editor link.
@@ -110,12 +140,30 @@ function remove_menu_elements() {
 }
 add_action( 'admin_init', 'remove_menu_elements', 102 );
 
+
 /**
  * Custom functions that act independently of the theme templates.
  */
 require get_template_directory() . '/inc/extras.php';
 
+
 /**
  * Register Bootstrap navigation walker.
  */
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+
+
+/**
+ * Removes admin color scheme options under Personal Options section from Profile of Users
+ */
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+//Removes the leftover 'Visual Editor', 'Keyboard Shortcuts' and 'Toolbar' options.
+add_action( 'admin_head', function () {
+	ob_start( function( $subject ) {
+		$subject = preg_replace( '#<h[0-9]>'.__("Personal Options").'</h[0-9]>.+?/table>#s', '', $subject, 1 );
+		return $subject;
+	});
+});
+add_action( 'admin_footer', function(){
+	ob_end_flush();
+}); 
