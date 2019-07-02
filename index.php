@@ -12,7 +12,7 @@
  */
 
 get_header(); ?>
-</div><!-- end container -->
+</div><!-- .container -->
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -39,7 +39,7 @@ get_header(); ?>
 						<?php endif; ?>
 					</div><!-- .col -->
 				</div><!-- .row -->
-			</div><!-- end container -->
+			</div><!-- .container -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
