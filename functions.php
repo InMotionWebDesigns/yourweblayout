@@ -89,8 +89,8 @@ function yourweblayout_custom_logo() {
  */
 function yourweblayout_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.css' );
-	//wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/all.css' );
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/font-awesome.css' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/all.css' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/fontawesome.css' );
 	//wp_enqueue_style( 'animate', get_template_directory_uri() . '/css/animate.css' );
 	wp_enqueue_style( 'smartmenus-css', get_template_directory_uri() . '/css/jquery.smartmenus.bootstrap.css' );
 	wp_enqueue_style( 'yourweblayout-style', get_stylesheet_uri() );
