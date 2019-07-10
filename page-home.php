@@ -7,7 +7,17 @@
 
 get_header(); ?>
 </div><!-- .container -->
+<?php
+    if(has_post_thumbnail()){
+        echo '<div class="leaderboard-image">';
+        the_post_thumbnail('full');
+        echo '</div>';
+    }
 
+    else{
+        echo '<div class="leaderboard-without-image"></div>';
+    }
+?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<div class="container">
