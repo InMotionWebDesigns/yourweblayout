@@ -32,7 +32,7 @@ function yourweblayout_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-	 * Enable support for Post Thumbnails on posts and pages.
+	 * Enable support for Post Thumbnails (Leaderboard Image) on posts and pages.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
