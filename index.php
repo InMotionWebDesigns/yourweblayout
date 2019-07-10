@@ -13,7 +13,20 @@
 
 get_header(); ?>
 </div><!-- .container -->
+<!-- Pulls in Featured Image for Main Blog Page -->
+<?php
+    if (is_home() && get_option('page_for_posts') ) {
+    $blog_home_id = get_option( 'page_for_posts' );
+   
+        echo '<div class="leaderboard-image">';
+        echo ''.get_the_post_thumbnail($blog_home_id, 'full').''; 
+        echo '</div>';
+    }
 
+    else{
+        echo '<div class="leaderboard-without-image"></div>';
+    }
+?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 			<div class="container">
