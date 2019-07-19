@@ -15,7 +15,6 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<!-- <link rel="shortcut icon" href="<?php //echo get_stylesheet_directory_uri(); ?>/favicon.ico" /> -->
 <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <?php wp_head(); ?>
 </head>	
