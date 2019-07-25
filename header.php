@@ -60,11 +60,11 @@
 							'depth'             => 3,
 							'container'         => 'div',
 							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'primary-navbar',
-							'menu_class'        => 'nav navbar-nav',
-							'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-							'walker'            => new wp_bootstrap_navwalker())
-							);
+							'container_id'      => 'bs-example-navbar-collapse-1',
+							'menu_class'        => 'navbar-nav mr-auto',
+							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'            => new WP_Bootstrap_Navwalker(),
+						) );
 						?>
 					</div><!-- .col -->
 				</div><!-- .row -->
