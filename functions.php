@@ -152,9 +152,9 @@ require get_template_directory() . '/inc/extras.php';
 
 
 /**
- * Register Bootstrap navigation walker.
- */
-require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+ * Register Bootstrap navigation walker. Feb 10, 2018 last Bootstrap 3 update: https://github.com/wp-bootstrap/wp-bootstrap-navwalker
+ */ 
+require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 
 
 /**
