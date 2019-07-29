@@ -192,6 +192,12 @@ object,
 /*--------------------------------------------------------------
 3.0 Your Web Layout
 --------------------------------------------------------------*/
+/* this removes the anchor tags around images and text when printing a webpage */
+@media print {
+	a[href]:after {
+		content: "";
+	}
+}
 
 /*--------------------------------------------------------------
 3.1 Typography
@@ -264,7 +270,7 @@ body {
 }
 
 .navbar-default .navbar-nav {
-	margin-left: -15px;
+	padding-left: 0;
 }
 
 .navbar-default .navbar-nav > li > a {
