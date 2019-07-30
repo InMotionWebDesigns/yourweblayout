@@ -332,8 +332,10 @@ body {
 3.8 Custom
 --------------------------------------------------------------*/
 .search-submit {
-	font-family:FontAwesome;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;/* Needed for solid icons in Font Awesome 5 */
 }
+
 
 
 
