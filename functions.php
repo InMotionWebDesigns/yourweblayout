@@ -98,11 +98,11 @@ function yourweblayout_scripts() {
 	wp_enqueue_style( 'yourweblayout-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/js/jquery-1.11.1.js' );
-	wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/all.js' );
-	wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/all.min.js' );
+	//wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/all.js' );
+	//wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/all.min.js' );
 	wp_enqueue_script( 'bootstrap-javascript', get_template_directory_uri() . '/js/bootstrap.js' );
-	wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/fontawesome.js' );
-	wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/fontawesome.min.js' );
+	//wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/fontawesome.js' );
+	//wp_enqueue_script( 'fontawesome-javascript', get_template_directory_uri() . '/js/fontawesome.min.js' );
 	wp_enqueue_script( 'smartmenus-javascript', get_template_directory_uri() . '/js/jquery.smartmenus.js' );
 	wp_enqueue_script( 'smartmenus-bootstrap-javascript', get_template_directory_uri() . '/js/jquery.smartmenus.bootstrap.js' );
 
