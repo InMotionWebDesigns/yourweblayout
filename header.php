@@ -15,7 +15,6 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <?php wp_head(); ?>
 </head>	
 	
@@ -47,7 +46,7 @@
 					<div class="col-sm-12">
 						<div class="navbar-header">
 							<!--<a class="navbar-brand visible-xs" data-toggle="collapse" data-target="#primary-navbar" href="#">Main Menu</a>-->
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-navbar">
 								<span class="sr-only">Toggle navigation</span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -60,7 +59,7 @@
 							'depth'             => 3,
 							'container'         => 'div',
 							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'bs-navbar-collapse',
+							'container_id'      => 'primary-navbar',
 							'menu_class'        => 'navbar-nav mr-auto',
 							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
 							'walker'            => new WP_Bootstrap_Navwalker(),
