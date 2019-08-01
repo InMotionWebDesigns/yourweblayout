@@ -111,6 +111,31 @@ function yourweblayout_scripts() {
 add_action( 'wp_enqueue_scripts', 'yourweblayout_scripts' );
 
 
+/**
+ * Register widget areas.
+ *
+ * @link http://codex.wordpress.org/Function_Reference/register_sidebar
+ */
+function yourweblayout_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Left Sidebar', 'yourweblayout' ),
+		'id'            => 'sidebar-1',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => __( 'Right Sidebar', 'yourweblayout' ),
+		'id'            => 'sidebar-2',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'yourweblayout_widgets_init' );
+
 
 /**
  * Allows shortcodes to be used in widgets
