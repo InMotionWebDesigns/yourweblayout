@@ -1,4 +1,4 @@
-/*
+#/*
 Theme Name: Your Web Layout
 Theme URI: http://yourweblayout.com/
 Github Theme URI: https://github.com/InMotionWebDesigns/yourweblayout
@@ -241,7 +241,7 @@ body {
 	background: #f0f0f0;
 }
 
-.site-content > .container {
+.site-content {
 	background: #fff;
 }
 
@@ -253,7 +253,7 @@ body {
 3.3 Header
 --------------------------------------------------------------*/
 #logo {
-
+	margin: 10px 0;
 }
 
 /*--------------------------------------------------------------
